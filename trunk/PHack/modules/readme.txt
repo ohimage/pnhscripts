@@ -1,0 +1,1 @@
+You must copy thease over to the garrysmod/lua/ folder manually. The module loader doesnt check inside addons.
