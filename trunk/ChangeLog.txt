@@ -1,0 +1,195 @@
+Revision: 12
+Author: hellfox14@gmail.com
+Date: 1:04:07 PM, April-28-12
+Message:
+
+----
+Modified : /trunk/ups_menu/lua/ulx/modules/ups_menu_control.lua
+
+Revision: 11
+Author: Hellfox14@gmail.com
+Date: 12:36:31 PM, April-28-12
+Message:
+
+----
+Deleted : /trunk/helloworld.txt
+Added : /trunk/readme.txt
+Added : /trunk/ups_menu
+Added : /trunk/ups_menu/info.txt
+Added : /trunk/ups_menu/lua
+Added : /trunk/ups_menu/lua/autorun
+Added : /trunk/ups_menu/lua/autorun/init.lua
+Added : /trunk/ups_menu/lua/ulx
+Added : /trunk/ups_menu/lua/ulx/modules
+Added : /trunk/ups_menu/lua/ulx/modules/sh
+Added : /trunk/ups_menu/lua/ulx/modules/sh/cleanup_svn.lua
+Added : /trunk/ups_menu/lua/ulx/modules/sh/cleardecals_svn.lua
+Added : /trunk/ups_menu/lua/ulx/modules/sh/sh_nolag.lua
+Added : /trunk/ups_menu/lua/ulx/modules/sh/ups_menu-open.lua
+Added : /trunk/ups_menu/lua/ulx/modules/ups_menu_control.lua
+Added : /trunk/ups_menu/lua/upsmenu
+Added : /trunk/ups_menu/lua/upsmenu/ups_menu.lua
+
+Revision: 10
+Author: thelastpenguin212@gmail.com
+Date: 12:03:09 PM, April-28-12
+Message:
+
+----
+Added : /trunk/Penguin's Graphics
+Added : /trunk/Penguin's Graphics/Raw
+Added : /trunk/Penguin's Graphics/Raw/OMFG AMAZING BIRD.gif
+Added : /trunk/Penguin's Graphics/Raw/penguin.png
+
+Revision: 9
+Author: thelastpenguin212@gmail.com
+Date: 11:01:05 PM, April-27-12
+Message:
+
+----
+Added : /trunk/PHack/Lua/PHack/plugins/ConVarForcer.lua
+
+Revision: 8
+Author: thelastpenguin212@gmail.com
+Date: 9:45:05 PM, April-27-12
+Message:
+
+----
+Deleted : /trunk/PHack/Materials/turtle
+
+Revision: 7
+Author: thelastpenguin212@gmail.com
+Date: 9:44:25 PM, April-27-12
+Message:
+
+----
+Added : /trunk/PHack/ImagesRaw
+Added : /trunk/PHack/ImagesRaw/BackgroundStripedDarkt.png
+Added : /trunk/PHack/ImagesRaw/BackgroundStripedLight.png
+Added : /trunk/PHack/ImagesRaw/Thumbs.db
+Added : /trunk/PHack/Lua
+Added : /trunk/PHack/Lua/PHack
+Added : /trunk/PHack/Lua/PHack/plugins
+Added : /trunk/PHack/Lua/PHack/plugins/NameChanger.lua
+Added : /trunk/PHack/Lua/autorun
+Added : /trunk/PHack/Lua/autorun/phack.lua
+Added : /trunk/PHack/Materials
+Added : /trunk/PHack/Materials/LPHack
+Added : /trunk/PHack/Materials/LPHack/GUI
+Added : /trunk/PHack/Materials/LPHack/GUI/Backgrounds
+Added : /trunk/PHack/Materials/LPHack/GUI/Backgrounds/StripedDark.vmt
+Added : /trunk/PHack/Materials/LPHack/GUI/Backgrounds/StripedDark.vtf
+Added : /trunk/PHack/Materials/LPHack/GUI/Backgrounds/StripedLight.vmt
+Added : /trunk/PHack/Materials/LPHack/GUI/Backgrounds/StripedLight.vtf
+Added : /trunk/PHack/Materials/LPHack/GUI/Penguin.vmt
+Added : /trunk/PHack/Materials/LPHack/GUI/Penguin.vtf
+Added : /trunk/PHack/Materials/turtle
+Added : /trunk/PHack/Materials/turtle/errorcleanse_opaque.vmt
+Added : /trunk/PHack/Materials/turtle/errorcleanse_opaque.vtf
+Added : /trunk/PHack/Materials/turtle/newmissing.vmt
+Added : /trunk/PHack/Materials/turtle/newmissing.vtf
+Added : /trunk/PHack/changelog.txt
+Added : /trunk/PHack/data
+Added : /trunk/PHack/data/PHack
+Added : /trunk/PHack/data/PHack/namechangerstrings.txt
+Added : /trunk/PHack/info.txt
+Added : /trunk/PHack/models
+Added : /trunk/PHack/models/props
+Added : /trunk/PHack/models/props/smallcubetrt.dx80.vtx
+Added : /trunk/PHack/models/props/smallcubetrt.dx90.vtx
+Added : /trunk/PHack/models/props/smallcubetrt.mdl
+Added : /trunk/PHack/models/props/smallcubetrt.phy
+Added : /trunk/PHack/models/props/smallcubetrt.sw.vtx
+Added : /trunk/PHack/models/props/smallcubetrt.vvd
+Added : /trunk/PHack/models/props/smallcubetrt.xbox.vtx
+Added : /trunk/PHack/modules
+Added : /trunk/PHack/modules/gm_console.dll
+Added : /trunk/PHack/modules/gm_forceconvar.dll
+Added : /trunk/PHack/modules/readme.txt
+
+Revision: 6
+Author: thelastpenguin212@gmail.com
+Date: 9:43:34 PM, April-27-12
+Message:
+
+----
+Added : /trunk/PHack
+
+Revision: 5
+Author: hellfox14@gmail.com
+Date: 8:38:56 PM, April-27-12
+Message:
+
+----
+Added : /trunk/HeLLFox_15-SWEPS
+Added : /trunk/HeLLFox_15-SWEPS/info.txt
+Added : /trunk/HeLLFox_15-SWEPS/lua
+Added : /trunk/HeLLFox_15-SWEPS/lua/weapons
+Added : /trunk/HeLLFox_15-SWEPS/lua/weapons/weapon_Bite
+Added : /trunk/HeLLFox_15-SWEPS/lua/weapons/weapon_Bite/shared.lua
+Added : /trunk/HeLLFox_15-SWEPS/lua/weapons/weapon_EXD
+Added : /trunk/HeLLFox_15-SWEPS/lua/weapons/weapon_EXD/shared.lua
+Added : /trunk/HeLLFox_15-SWEPS/lua/weapons/weapon_EXD2
+Added : /trunk/HeLLFox_15-SWEPS/lua/weapons/weapon_EXD2/shared.lua
+Added : /trunk/HeLLFox_15-SWEPS/lua/weapons/weapon_NukeRifle
+Added : /trunk/HeLLFox_15-SWEPS/lua/weapons/weapon_NukeRifle/shared.lua
+Added : /trunk/HeLLFox_15-SWEPS/lua/weapons/weapon_Pounce
+Added : /trunk/HeLLFox_15-SWEPS/lua/weapons/weapon_Pounce/shared.lua
+Added : /trunk/HeLLFox_15-SWEPS/lua/weapons/weapon_Pulse
+Added : /trunk/HeLLFox_15-SWEPS/lua/weapons/weapon_Pulse/shared.lua
+Added : /trunk/HeLLFox_15-SWEPS/lua/weapons/weapon_real_cs_ar3
+Added : /trunk/HeLLFox_15-SWEPS/lua/weapons/weapon_real_cs_ar3/shared.lua
+
+Revision: 4
+Author: hellfox14@gmail.com
+Date: 8:35:47 PM, April-27-12
+Message:
+
+----
+Deleted : /trunk/hellfox
+
+Revision: 3
+Author: Hellfox14@gmail.com
+Date: 7:11:29 PM, April-27-12
+Message:
+
+----
+Added : /trunk/hellfox
+Added : /trunk/hellfox/HeLLFox_15-SWEPS
+Added : /trunk/hellfox/HeLLFox_15-SWEPS/info.txt
+Added : /trunk/hellfox/HeLLFox_15-SWEPS/lua
+Added : /trunk/hellfox/HeLLFox_15-SWEPS/lua/weapons
+Added : /trunk/hellfox/HeLLFox_15-SWEPS/lua/weapons/weapon_Bite
+Added : /trunk/hellfox/HeLLFox_15-SWEPS/lua/weapons/weapon_Bite/shared.lua
+Added : /trunk/hellfox/HeLLFox_15-SWEPS/lua/weapons/weapon_EXD
+Added : /trunk/hellfox/HeLLFox_15-SWEPS/lua/weapons/weapon_EXD/shared.lua
+Added : /trunk/hellfox/HeLLFox_15-SWEPS/lua/weapons/weapon_EXD2
+Added : /trunk/hellfox/HeLLFox_15-SWEPS/lua/weapons/weapon_EXD2/shared.lua
+Added : /trunk/hellfox/HeLLFox_15-SWEPS/lua/weapons/weapon_NukeRifle
+Added : /trunk/hellfox/HeLLFox_15-SWEPS/lua/weapons/weapon_NukeRifle/shared.lua
+Added : /trunk/hellfox/HeLLFox_15-SWEPS/lua/weapons/weapon_Pounce
+Added : /trunk/hellfox/HeLLFox_15-SWEPS/lua/weapons/weapon_Pounce/shared.lua
+Added : /trunk/hellfox/HeLLFox_15-SWEPS/lua/weapons/weapon_Pulse
+Added : /trunk/hellfox/HeLLFox_15-SWEPS/lua/weapons/weapon_Pulse/shared.lua
+Added : /trunk/hellfox/HeLLFox_15-SWEPS/lua/weapons/weapon_real_cs_ar3
+Added : /trunk/hellfox/HeLLFox_15-SWEPS/lua/weapons/weapon_real_cs_ar3/shared.lua
+
+Revision: 2
+Author: thelastpenguin212@gmail.com
+Date: 7:02:46 PM, April-27-12
+Message:
+
+----
+Added : /trunk/helloworld.txt
+
+Revision: 1
+Author: 
+Date: 3:59:40 PM, April-27-12
+Message:
+Initial directory structure.
+----
+Added : /branches
+Added : /tags
+Added : /trunk
+Added : /wiki
+
