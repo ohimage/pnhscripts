@@ -5,6 +5,7 @@
 function UpsClnStr( player,command,args )
 
 	strArgs = args[1]
+    strArg2 = args[2]
 	
 	if( strArgs == "" or strArgs == nil or strArgs == " " or strArgs == "  " ) then
 		strArgs = "*"		
@@ -15,9 +16,20 @@ function UpsClnStr( player,command,args )
 	if(player:IsAdmin() or player:IsSuperAdmin()) then
 		
 		if(strArgs == "*") then 
-			player:ConCommand("gmod_admin_cleanup")
 			game.CleanUpMap()
 		end
+        
+        if(strArgs == "p") then
+            if( strArg2 == "" or strArg2 == nil or strArg2 == " " or strArg2 == "  " ) then
+                print("Error: Player Not Specified!")
+            else
+                for k,v in pairs(player.GetAll())do
+                    if( v:Name() == strArg2 ) then
+                        v:ConCommand("gmod_cleanup")
+                    end
+                end
+            end
+        end
 	
 		if(strArgs == "help") then ULib.tsay( player,"Input a model string or an entity class." ) end
 
