@@ -1,5 +1,5 @@
 -- ULX Clear Decals for ULX SVN/ULib SVN by .:RynO-SauruS:.
-function ulx.dcals( calling_ply )
+function ulx.decals( calling_ply )
 	for k, v in pairs(player.GetAll()) do 
 		v:ConCommand("r_cleardecals")
 	end
@@ -8,6 +8,6 @@ function ulx.dcals( calling_ply )
 	
 	return true
 end
-local dcals= ulx.command( "Utility", "ulx dcals", ulx.dcals, "!dcals" )
-dcals:defaultAccess( ULib.ACCESS_ADMIN )
-dcals:help( "Clears all decals." )
+local decals= ulx.command( "Utility", "ulx decals", ulx.decals, "!decals" )
+decals:defaultAccess( ULib.ACCESS_ADMIN )
+decals:help( "Clears all decals." )
