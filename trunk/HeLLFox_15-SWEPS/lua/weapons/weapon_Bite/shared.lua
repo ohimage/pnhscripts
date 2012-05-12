@@ -57,7 +57,7 @@ function SWEP:PrimaryAttack() //when +attack1 happens
         if ( eyetrace.HitPos:Distance(self.Owner:GetPos()) < 100 ) then
             self.Weapon:EmitSound ( "npc/headcrab/headbite.wav" )
             
-            local dmg = math.random(50,100)
+            local dmg = math.random(40,55)
             local hp = self.Owner:Health()
             
             if ( eyetrace.Entity:IsValid() and eyetrace.Entity:IsPlayer() ) then
