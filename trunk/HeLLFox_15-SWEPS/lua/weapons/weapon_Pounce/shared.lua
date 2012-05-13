@@ -67,14 +67,16 @@ function SWEP:PrimaryAttack() //when +attack1 happens
 	if ( !self:CanPrimaryAttack() ) then return end
         
         local eyetrace = self.Owner:GetEyeTrace()
+        local phys = eyetrace.Entity:GetPhysicsObject()
         
         if ( eyetrace.HitPos:Distance(self.Owner:GetPos()) < 100 ) then
             self.Weapon:EmitSound ( "npc/fast_zombie/claw_strike"..math.random(1,3)..".wav" )
             if ( eyetrace.Entity:IsValid() and eyetrace.Entity:IsPlayer() or eyetrace.Entity:IsNPC() ) then 
-                eyetrace.Entity:TakeDamage( math.random(15,60), self.Owner, self.Owner:GetActiveWeapon() )
+                eyetrace.Entity:TakeDamage( math.random(15,100), self.Owner, self.Owner:GetActiveWeapon() )
                 eyetrace.Entity:SetVelocity((eyetrace.Entity:GetForward() * -64) + Vector(0,0,32))
-            elseif ( eyetrace.Entity:GetClass() == "prop_physics" ) then
-                eyetrace.Entity:SetVelocity((eyetrace.Entity:GetForward() * -64) + Vector(0,0,64))
+            elseif ( phys and phys:IsValid() and phys:IsMoveable() ) then
+                phys:Wake()
+                phys:SetVelocity((eyetrace.Entity:GetForward() * -120)) + Vector(0,0,74))
             end
         else
             self.Weapon:EmitSound ( "npc/vort/claw_swing"..math.random(1,2)..".wav" )
