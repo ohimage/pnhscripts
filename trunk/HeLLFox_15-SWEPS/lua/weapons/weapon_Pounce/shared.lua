@@ -76,7 +76,7 @@ function SWEP:PrimaryAttack() //when +attack1 happens
                 eyetrace.Entity:SetVelocity((eyetrace.Entity:GetForward() * -64) + Vector(0,0,32))
             elseif ( phys and phys:IsValid() and phys:IsMoveable() ) then
                 phys:Wake()
-                phys:SetVelocity((eyetrace.Entity:GetForward() * -120) + Vector(0,0,74))
+                phys:SetVelocity((eyetrace.Entity:GetForward() * -640) + Vector(0,0,74))
             end
         else
             self.Weapon:EmitSound ( "npc/vort/claw_swing"..math.random(1,2)..".wav" )
