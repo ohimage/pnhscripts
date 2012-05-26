@@ -1,8 +1,0 @@
-"AddonInfo"
-{
-	"name"		"Clear map for ULX SVN"
-	"version"	"1.0"
-	"up_date"	"25th April 2011"
-	"author_name"	"RynO-SauruS & Hellfox_15"
-	"info"		"Adds a map cleanup command to ULX"
-}
