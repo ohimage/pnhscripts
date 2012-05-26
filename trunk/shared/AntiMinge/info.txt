@@ -3,7 +3,7 @@
 	"name"			"AntiMinge"
 	"version"		"0.0.1"
 	"up_date"		"IDK"
-	"author_name"		"TheLastPenguin - remove this and you have no heart."
+	"author_name"		"TheLastPenguin and HeLLFox - remove this and you have no heart."
 	"author_email"		"penguin@lastpenguin.com"
 	"author_url"		"IF YOU CANT FIGURE OUT HOW TO USE IT... I REALLY DONT WANT TO HEAR FROM YOU."
 	"info"			"It prevents prop kills... no shit."
