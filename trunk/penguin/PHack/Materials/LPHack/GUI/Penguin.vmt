@@ -1,0 +1,5 @@
+"UnlitGeneric"
+{
+	"$basetexture" "LPHack/GUI/Penguin"
+	"$translucent" 1
+}
