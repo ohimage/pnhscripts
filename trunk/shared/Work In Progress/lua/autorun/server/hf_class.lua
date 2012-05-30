@@ -16,7 +16,7 @@ end)
 
 function classControl() 
 
-    defaultTools = { "keys", "weapon_physcannon", "gmod_camera", "gmod_tool", "pocket", "weapon_physgun"  }
+    defaultTools = { "keys", "weapon_physgun", "gmod_camera", "gmod_tool", "pocket", "weapon_physcannon"  }
 
     for k, ply in pairs(player.GetAll()) do
         if ( ply:IsSuperAdmin() == false ) then
