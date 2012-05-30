@@ -36,7 +36,6 @@ end)
 hook.Add("PhysgunDrop","SVGuard_PhysDrop",function( ply, ent )
 	if(ent:GetClass() == "prop_physics")then
 		ent.lastTouchedBy = ply
-		ent:SetSolid(SOLID_VPHYSICS)
         ent:SetCollisionGroup( ent.oldCollision )
 		ent.heldByPlayer = false
 		ent:SetColor( ent.oldColor )
@@ -48,7 +47,9 @@ hook.Add("PhysgunPickup","SVGuard_PhysPickup",function( ply, ent )
 		ent.oldColor = Color(ent:GetColor())
         ent.oldCollision = ent:GetCollisionGroup()
 		ent:SetColor(0,0,255,155)
-        ent:SetCollisionGroup( COLLISION_GROUP_WEAPON )
+        if( ent:GetCollisionGroup() != COLLISION_GROUP_WORLD ){
+            ent:SetCollisionGroup( COLLISION_GROUP_DEBRIS )
+        }
 		ent:SetPos(ent:GetPos() + Vector( math.random(-0.1,0.1),math.random(-0.1,0.1),math.random(-0.1,0.1)))
 	end
 end)
