@@ -47,9 +47,9 @@ hook.Add("PhysgunPickup","SVGuard_PhysPickup",function( ply, ent )
 		ent.oldColor = Color(ent:GetColor())
         ent.oldCollision = ent:GetCollisionGroup()
 		ent:SetColor(0,0,255,155)
-        if( ent:GetCollisionGroup() != COLLISION_GROUP_WORLD ){
+        if( ent:GetCollisionGroup() != COLLISION_GROUP_WORLD ) then
             ent:SetCollisionGroup( COLLISION_GROUP_DEBRIS )
-        }
+        end
 		ent:SetPos(ent:GetPos() + Vector( math.random(-0.1,0.1),math.random(-0.1,0.1),math.random(-0.1,0.1)))
 	end
 end)
