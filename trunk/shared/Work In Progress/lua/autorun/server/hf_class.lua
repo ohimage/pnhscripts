@@ -6,34 +6,34 @@
 // models/combine_soldier/combinesoldiersheet
 // TEAM_CPPET = AddExtraTeam("Police Pet", Color(0, 255, 180, 255), "models/renamon/renamon2009.mdl", [[ You work for the police, your helping! ]], {"weapon_Pounce", "weapon_Bite", "weaponchecker"}, "cppet", 6, 0, 0, false)
 
-timer.Create( "PetHealth", 1.5, 0, function()
+timer.Create( "PetProperties", 1.5, 0, function()
     for _, ply in pairs( player.GetAll() ) do
         if ( ( ply:Team() == TEAM_PET or ply:Team() == TEAM_CPPET ) and ply:Health() < 150 ) then
             ply:SetHealth(ply:Health() + 1)
         end
-    end
-end)
-
-function classControl() 
-
-    defaultTools = { "keys", "weapon_physgun", "gmod_camera", "gmod_tool", "pocket", "weapon_physcannon"  }
-
-    for k, ply in pairs(player.GetAll()) do
-        if ( ply:IsSuperAdmin() == false ) then
-            if ( ply:Team() == TEAM_PET or ply:Team() == TEAM_CPPET ) then
-                if ( ply:GetActiveWeapon():GetClass() != "weapon_pounce" and ply:GetActiveWeapon():GetClass() != "weapon_bite" ) then
-                    if ( table.HasValue( defaultTools, ply:GetActiveWeapon():GetClass() ) ) then ply:GetActiveWeapon():Remove() else ply:DropWeapon( ply:GetActiveWeapon():GetClass() ) end
-                end
-            end     
-        end
-    
         if ( ply:Team() == TEAM_CPPET ) then
             ply:SetMaterial("models/combine_soldier/combinesoldiersheet")
         else
             ply:SetMaterial("")
         end
     end
-    
-end
+end)
 
-hook.Add( "Think", "PlayerClassControl", classControl )
+-- function petClassControl( ply ) 
+
+    -- defaultTools = { "keys", "weapon_physgun", "gmod_camera", "gmod_tool", "pocket", "weapon_physcannon"  }
+
+    -- if ( ply:IsValid() and ply:Alive() ) then
+        -- if ( ply:Team() == TEAM_PET or ply:Team() == TEAM_CPPET ) then
+            -- ply:StripWeapons()
+            -- ply:Give("weapon_pounce")
+            -- ply:Give("weapon_bite")
+            -- print( "Class Set!" )
+        -- end     
+    -- end
+    
+-- end
+
+-- hook.Add("OnPlayerChangedTeam", "petClassControlNoRespawn", petClassControl())
+
+-- hook.Add("PlayerSpawn", "petClassControlRespawn", petClassControl())
