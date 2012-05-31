@@ -1,10 +1,7 @@
 "AddonInfo"
 {
-	"name"		"LPHack"
-	"version"	"1.0.0"
-	"up_date"	"3/31/2012"
-	"author_name"	"The Last Penguin"
-	"author_email"	"thelastpenguin@comcast.net -- contact me on steam is easyer"
-	"author_url"  	"tpsgaming.com"
-	"info"		"A set of hacks for garrysmod by thelastpenguin"
+	"name"		"Conna's Wall hack"
+	"version"	"1.0"
+	"up_date"	"idk"
+	"author_name"	"Conna"
 }

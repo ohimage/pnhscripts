@@ -1,7 +1,0 @@
-"AddonInfo"
-{
-	"name"		"Conna's Wall hack"
-	"version"	"1.0"
-	"up_date"	"idk"
-	"author_name"	"Conna"
-}
