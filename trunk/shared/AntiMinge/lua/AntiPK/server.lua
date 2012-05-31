@@ -35,22 +35,27 @@ end)
 
 hook.Add("PhysgunDrop","SVGuard_PhysDrop",function( ply, ent )
 	if(ent:GetClass() == "prop_physics")then
-		ent.lastTouchedBy = ply
-        ent:SetCollisionGroup( ent.oldCollision )
+        ent:SetCollisionGroup( ply.lp_antipk.OldCollision )
 		ent.heldByPlayer = false
-		ent:SetColor( ent.oldColor )
+		ent:SetColor( ply.lp_antipk.OldColor )
+		ent:SetMaterial( ply.lp_antipk.OldMaterial )
 	end
 end)
+
 hook.Add("PhysgunPickup","SVGuard_PhysPickup",function( ply, ent )
+	if(ply.lp_antipk == nil)then ply.lp_antipk = {} end
 	if(ent:GetClass() == "prop_physics")then
 		ent.heldByPlayer = true
-		ent.oldColor = Color(ent:GetColor())
-        ent.oldCollision = ent:GetCollisionGroup()
+		ply.lp_antipk.OldColor = Color(ent:GetColor())
+		ply.lp_antipk.OldMaterial = ent:GetMaterial()
+        ply.lp_antipk.OldCollision = ent:GetCollisionGroup()
 		ent:SetColor(0,0,255,155)
+		ent:SetMaterial( "models/wireframe" )
         if( ent:GetCollisionGroup() != COLLISION_GROUP_WORLD ) then
             ent:SetCollisionGroup( COLLISION_GROUP_DEBRIS )
         end
-		ent:SetPos(ent:GetPos() + Vector( math.random(-0.1,0.1),math.random(-0.1,0.1),math.random(-0.1,0.1)))
+		ply:ResetHull() -- this is to prevent potential glitches that could allow prop surfing though it would
+		-- be very hard.
 	end
 end)
 
