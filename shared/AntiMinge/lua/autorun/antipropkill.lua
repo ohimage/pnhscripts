@@ -12,6 +12,7 @@ local pk = PAntiPropKill
 
 if(SERVER)then
 	AddCSLuaFile("AntiPK/client.lua")
+	AddCSLuaFile("autorun/antipropkill.lua")
 	include("AntiPK/server.lua")
 elseif(CLIENT)then
 	include("AntiPK/client.lua")

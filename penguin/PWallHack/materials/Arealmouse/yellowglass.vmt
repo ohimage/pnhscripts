@@ -1,0 +1,6 @@
+"LightmappedGeneric"
+{
+    "$basetexture" "icecreamlock/yellowglass"
+    "$surfaceprop" "glass"
+    "$alpha" 0.5
+}
