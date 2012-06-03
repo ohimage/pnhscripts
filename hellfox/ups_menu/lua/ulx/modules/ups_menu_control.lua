@@ -26,7 +26,7 @@ function UpsClnStr( player,command,args )
                 print("Error: Player Not Specified!")
             else
                 for k,v in pairs(player.GetAll())do
-                    if( v:Name() == strArg2 ) then
+                    if( string.find(v:Name(),strArg2) ) then
                         v:ConCommand("gmod_cleanup")
                         strArgValid = true
                     end
@@ -34,7 +34,11 @@ function UpsClnStr( player,command,args )
             end
         end
 	
-		if(strArgs == "help") then ULib.tsay( player,"Input a model string or an entity class." ) end
+		if(strArgs == "help") then
+            umsg.Start( "[clnup] Cleanup Help All" )
+                    umsg.String( "[clnup] Input a model string or an entity class.\n [clnup] Input * to cleanup every thing.\n [clnup] Input p then a players name to cleanup a player.\n", player )
+            umsg.End()
+        end
 
 		ignoreList =
 		{
