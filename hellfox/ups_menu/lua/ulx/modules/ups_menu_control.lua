@@ -59,6 +59,20 @@ function UpsClnStr( player,command,args )
 			"class C_WaterLODControl",
 			"class C_SpotlightEnd"
 		}
+        
+        if( string.find(strArgs,"*") >= 1 and string.len(strArgs) > 1 ) then
+            fStrArgs = string.Explode(strArgs,"*")
+            for _, ent in ipairs( ents.GetAll() ) do
+                if(ent:IsValid() and not ent:IsWorld()) then
+                    if not (table.HasValue( ignoreList, ent:GetClass() )) then
+                        for _, sa in ipairs( fStrArgs ) then
+                            if( string.find(ent:GetClass(),sa) > 0 ) then ent:Remove() end
+                            strArgValid = true
+                        end
+                    end
+                end
+            end    
+        end
 	
 		for _, ent in ipairs( ents.GetAll() ) do
 			if(ent:IsValid() and ent:GetModel() == strArgs) then
