@@ -99,7 +99,7 @@ function UpsClnStr( player,command,args )
         end
 			
 	elseif not (strArgs == "" or strArgs == nil or strArgs == " " or strArgs == "  ") then	
-        umsg.Start( "[clnup] Cleanup Confirmed 01" )
+        umsg.Start( "[clnup] Cleanup Error 01" )
                 umsg.String( "[clnup] You are not allowed to do that "..player:GetName(), player )
         umsg.End()
         strArgValid = false
