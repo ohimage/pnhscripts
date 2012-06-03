@@ -2,7 +2,7 @@
 
 function UpsClnMsg( ply, msg, wasValid )
     
-    if not ( ply == nil or ply:IsPlayer() or ply:IsValid() ) then return end
+    if not ( ply == nil or ( ply:IsPlayer() and ply:IsValid() ) ) then return end
     if( ply and ply:IsValid() ) then wasValid = true end
     if( msg == nil ) then return end
     
