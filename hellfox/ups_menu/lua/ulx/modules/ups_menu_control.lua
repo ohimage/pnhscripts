@@ -26,7 +26,7 @@ function UpsClnStr( player,command,args )
                 print("Error: Player Not Specified!")
             else
                 for k,v in pairs(player.GetAll())do
-                    if( string.find(v:Name(),strArg2) ) then
+                    if( v:IsValid() and v:IsPlayer() and string.find(v:Name(),strArg2) ) then
                         v:ConCommand("gmod_cleanup")
                         strArgValid = true
                     end
