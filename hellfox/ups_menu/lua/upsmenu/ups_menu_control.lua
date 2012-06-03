@@ -1,6 +1,4 @@
--- ULX UPS_Menu for ULX SVN/ULib SVN by HeLLFox_15
-
--- CreateClientConVar("ups_clnstr_string", "*", false, false) -- not needed.
+-- UPS_Menu by HeLLFox
 
 function UpsClnStr( player,command,args )
 
@@ -120,4 +118,4 @@ function UpsClnStr( player,command,args )
 	end
 end
 	
-concommand.Add( "ups_clnstr", UpsClnStr )
+concommand.Add( "hf_clnstr", UpsClnStr, {"help","*","prop_physics","prop_ragdoll","npc_*"} )
