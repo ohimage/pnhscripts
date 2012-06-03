@@ -6,6 +6,7 @@ function UpsClnStr( player,command,args )
 
 	strArgs = args[1]
     strArg2 = args[2]
+    strArgValid = false
 	
 	if( strArgs == "" or strArgs == nil or strArgs == " " or strArgs == "  " ) then
 		strArgs = "*"		
@@ -17,6 +18,7 @@ function UpsClnStr( player,command,args )
 		
 		if(strArgs == "*") then 
 			game.CleanUpMap()
+            strArgValid = true
 		end
         
         if(strArgs == "p") then
@@ -26,6 +28,7 @@ function UpsClnStr( player,command,args )
                 for k,v in pairs(player.GetAll())do
                     if( v:Name() == strArg2 ) then
                         v:ConCommand("gmod_cleanup")
+                        strArgValid = true
                     end
                 end
             end
@@ -59,6 +62,7 @@ function UpsClnStr( player,command,args )
 				if not (ent:IsWorld()) then
 					if not table.HasValue( ignoreList, ent:GetClass() ) then
 						ent:Remove()
+                        strArgValid = true
 					end
 				end
 				
@@ -71,6 +75,7 @@ function UpsClnStr( player,command,args )
 						if not ( ent:IsWorld() ) then
 							
 							ent:Remove()
+                            strArgValid = true
 						
 						end
 					end
@@ -78,10 +83,22 @@ function UpsClnStr( player,command,args )
 			end
 		end
 			
-		ULib.tsay( nil, player:GetName().." has removed "..strArgs )
+		if( strArgValid ) then
+            umsg.Start( "[clnup] Cleanup Confirmed 01" )
+                if( strArgs == "*" ) then
+                    umsg.String( "[clnup] "..player:GetName().." has reset the map." )
+                else
+                    umsg.String( "[clnup] "..player:GetName().." has removed "..strArgs )
+                end
+            umsg.End()
+            strArgValid = false
+        end
 			
 	elseif not (strArgs == "" or strArgs == nil or strArgs == " " or strArgs == "  ") then	
-		ULib.tsay(	player, "You are not allowed to do that." )	
+        umsg.Start( "[clnup] Cleanup Confirmed 01" )
+                umsg.String( "[clnup] You are not allowed to do that "..player:GetName(), player )
+        umsg.End()
+        strArgValid = false
 	end
 end
 	
