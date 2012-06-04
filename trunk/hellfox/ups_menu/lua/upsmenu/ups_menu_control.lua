@@ -3,7 +3,7 @@
 function UpsClnMsg( ply, msg, wasValid )
     
     if not ( ply == nil or ( ply:IsPlayer() and ply:IsValid() ) ) then return end
-    if( ply and ply:IsValid() ) then wasValid = true end
+    if( ply and ply:IsValid() ) then wasValid = true else wasValid = false end
     if( msg == nil ) then return end
     
 	if SERVER and ply and not ply:IsValid() then -- Server console
@@ -60,7 +60,7 @@ function UpsClnStr( player,command,args )
 	end
     
     if(strArgs == "s*") then
-        game.ConsoleCommand("gmod_admin_cleanup")
+        RunConsoleCommand( "gmod_admin_cleanup" )
         strArgValid = true
     end
         
