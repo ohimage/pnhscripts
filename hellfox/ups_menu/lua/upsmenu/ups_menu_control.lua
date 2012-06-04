@@ -38,7 +38,7 @@ function UpsClnStr( player,command,args )
     strArgValid = false
 	
 	if( strArgs == "" or strArgs == nil or strArgs == " " or strArgs == "  " ) then
-		strArgs = "*"		
+		strArgs = "s*"		
 	end
 	
     if ( player:IsValid() ) then
@@ -56,8 +56,14 @@ function UpsClnStr( player,command,args )
 	
 	if(strArgs == "*") then 
 		game.CleanUpMap()
+        game.ConsoleCommand("gmod_admin_cleanup")
         strArgValid = true
 	end
+    
+    if(strArgs == "s*") then
+        game.ConsoleCommand("gmod_admin_cleanup")
+        strArgValid = true
+    end
         
     if(strArgs == "p") then
         if( strArg2 == "" or strArg2 == nil or strArg2 == " " or strArg2 == "  " ) then
@@ -73,7 +79,7 @@ function UpsClnStr( player,command,args )
     end
 	
 	if(strArgs == "help") then
-        UpsClnMsg( player, "[clnup] Input a model string or an entity class.\n [clnup] Input * to cleanup every thing.\n [clnup] Input p then a players name to cleanup a player.\n" )
+        UpsClnMsg( player, "[clnup] Input a model string or an entity class.\n [clnup] Input s* cleans up every thing safely, input * resets the map.\n [clnup] Input p then a players name to cleanup a player.\n" )
     end
 
 	ignoreList =
@@ -155,6 +161,8 @@ function UpsClnStr( player,command,args )
     if( strArgValid ) then
         if( strArgs == "*" ) then
             UpsClnMsg( nil, "[clnup] "..splyname.." has reset the map." )
+        elseif( strArgs == "s*" ) then
+            UpsClnMsg( nil, "[clnup] "..splyname.." has cleaned up the map." )
         else
             UpsClnMsg( nil, "[clnup] "..splyname.." has removed "..strArgs )
         end
@@ -162,4 +170,4 @@ function UpsClnStr( player,command,args )
     end
 end
 	
-concommand.Add( "hf_clnstr", UpsClnStr, {"help","*","prop_physics","prop_ragdoll","npc_*"} )
+concommand.Add( "hf_clnstr", UpsClnStr, {"help","s*","*","prop_physics","prop_ragdoll","npc_*"} )
