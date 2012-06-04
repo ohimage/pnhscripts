@@ -60,7 +60,7 @@ function UpsClnStr( player,command,args )
 	end
     
     if(strArgs == "s*") then
-        RunConsoleCommand( "gmod_admin_cleanup" )
+        if( player:IsValid() ) then player:ConCommand( "gmod_admin_cleanup" ) else RunConsoleCommand( "gmod_admin_cleanup" ) end
         strArgValid = true
     end
         
