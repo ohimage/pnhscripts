@@ -170,4 +170,4 @@ function UpsClnStr( player,command,args )
     end
 end
 	
-concommand.Add( "hf_clnstr", UpsClnStr, {"help","s*","*","prop_physics","prop_ragdoll","npc_*"} )
+concommand.Add( "hf_clnstr", UpsClnStr, {"help","s*","*","prop_physics","prop_ragdoll"} )
