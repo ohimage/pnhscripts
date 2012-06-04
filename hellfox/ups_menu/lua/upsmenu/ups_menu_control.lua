@@ -56,7 +56,6 @@ function UpsClnStr( player,command,args )
 	
 	if(strArgs == "*") then 
 		game.CleanUpMap()
-        game.ConsoleCommand("gmod_admin_cleanup")
         strArgValid = true
 	end
     
