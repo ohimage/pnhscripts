@@ -1,6 +1,6 @@
 -- ULX Cleanup By HeLLFox for ULX SVN/ULib.
-function ulx.clnup( calling_ply, string_arg, string_arg2 )
-		calling_ply:ConCommand("hf_clnstr "..string_arg.." "..string_arg2)
+function ulx.clnup( calling_ply, string_arg )
+		calling_ply:ConCommand("hf_clnstr "..string_arg)
 
 --  ulx.fancyLogAdmin( calling_ply, "#A cleaned up ".. string_arg, command, target_plys )
 	
