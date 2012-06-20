@@ -10,12 +10,12 @@ SWEP.DrawAmmo = true;
 SWEP.DrawCrosshair = true;
 end
 
-SWEP.Author = "HeLLFox_15"
-SWEP.Contact = "youremail@gmail.com"
-SWEP.Purpose = "Blow peaple up."
-SWEP.Instructions = "Primary to fire a bullet, Secondary to make an explosion where you are pointing"
-SWEP.Category = "HeLLFox_15-SWEPS"
- 
+SWEP.Author = "HeLLFox_15";
+SWEP.Contact = "youremail@gmail.com";
+SWEP.Purpose = "Blow peaple up.";
+SWEP.Instructions = "Primary to fire a bullet, Secondary to make an explosion where you are pointing";
+SWEP.Category = "HeLLFox_15-SWEPS";
+
 SWEP.Spawnable = false;
 SWEP.AdminSpawnable = true;
  
