@@ -80,7 +80,6 @@ function SWEP:PrimaryAttack() //when +attack1 happens
 end //end our function
 
 function SWEP:SecondaryAttack() // when secondary attack happens
-    // if ( self.Owner:Team() == TEAM_pet ) then end
     return
 end //telling Gmod that it's the end of the function
  
