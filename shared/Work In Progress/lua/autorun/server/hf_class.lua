@@ -19,21 +19,21 @@ timer.Create( "PetProperties", 1.5, 0, function()
     end
 end)
 
--- function petClassControl( ply ) 
+function petClassControl( ply ) 
 
-    -- defaultTools = { "keys", "weapon_physgun", "gmod_camera", "gmod_tool", "pocket", "weapon_physcannon"  }
+    defaultTools = { "keys", "weapon_physgun", "gmod_camera", "gmod_tool", "pocket", "weapon_physcannon"  }
 
-    -- if ( ply:IsValid() and ply:Alive() ) then
-        -- if ( ply:Team() == TEAM_PET or ply:Team() == TEAM_CPPET ) then
+    if ( ply:IsValid() and ply:Alive() ) then
+        if ( ply:Team() == TEAM_PET or ply:Team() == TEAM_CPPET ) then
             -- ply:StripWeapons()
-            -- ply:Give("weapon_pounce")
-            -- ply:Give("weapon_bite")
-            -- print( "Class Set!" )
-        -- end     
-    -- end
+            ply:Give("weapon_Pounce")
+            ply:Give("weapon_Bite")
+            print( "Class Set!" )
+        end     
+    end
     
--- end
+end
 
 -- hook.Add("OnPlayerChangedTeam", "petClassControlNoRespawn", petClassControl())
 
--- hook.Add("PlayerSpawn", "petClassControlRespawn", petClassControl())
+hook.Add("PlayerSpawn", "petClassControlRespawn", petClassControl())
