@@ -36,9 +36,9 @@ end)
 hook.Add("PhysgunDrop","SVGuard_PhysDrop",function( ply, ent )
 	if(ent:GetClass() == "prop_physics")then
         ent:SetCollisionGroup( ply.lp_antipk.OldCollision )
-		ent.heldByPlayer = false
-		ent:SetColor( ply.lp_antipk.OldColor )
+        ent:SetColor( ply.lp_antipk.OldColor )
 		ent:SetMaterial( ply.lp_antipk.OldMaterial )
+		ent.heldByPlayer = false
 	end
 end)
 
@@ -49,7 +49,7 @@ hook.Add("PhysgunPickup","SVGuard_PhysPickup",function( ply, ent )
 		ply.lp_antipk.OldColor = Color(ent:GetColor())
 		ply.lp_antipk.OldMaterial = ent:GetMaterial()
         ply.lp_antipk.OldCollision = ent:GetCollisionGroup()
-		ent:SetColor(0,0,255,155)
+		ent:SetColor(0,0,255,255)
 		ent:SetMaterial( "models/wireframe" )
         if( ent:GetCollisionGroup() != COLLISION_GROUP_WORLD ) then
             ent:SetCollisionGroup( COLLISION_GROUP_DEBRIS )
@@ -61,6 +61,31 @@ end)
 
 // Tool / Material exploits:
 local Exploit_Message = "Possible exploit detected."
+local scan_interval = 30 --How quickly do you want this to scan. (
+-- ^( 0.5 secounds is preffered because this way the exploit will be detected as soon as it is used. Rather then after it is used. [ Material Exploits ] )
+local exploit = ""
+// Exploit Logging
+local e_log = false --Change to true if you want to enable logging.
+local e_filename = "AntiPK_ae_log.txt"
+function LogExploit(pl, expl, cla)
+    if e_log then
+        local NAM = ""
+        local SID = ""
+        
+        if pl == nil then
+            NAM = "Unknown name"
+            SID = "Unknown steamid"
+        else
+            NAM = pl:Nick( )
+            SID = pl:SteamID()
+        end
+        if file.Exists( e_filename ) then
+            file.Write( e_filename, file.Read( e_filename ) .. "\n" .. tostring( os.date() ) .. " || " .. NAM .. " || " .. SID .. " || " .. expl .. " || " .. cla )
+        else
+            file.Write( e_filename, tostring( os.date() ) .. " || " .. NAM .. " || " .. SID .. " || " .. expl .. " || " .. cla)
+        end
+    end
+end
 // Tool gun shit.
 function UseTool( pl, tr, toolmode )
     if CLIENT then return true end
@@ -143,7 +168,7 @@ BlockedMaterials =
     "ar2_altfire1"
 }
 
-timer.Create( "scan_exploit", 30, 0, --This timer checks for materials add it here
+timer.Create( "scan_exploit", scan_interval, 0, --This timer checks for materials add it here
 function()
     exploit = "Material Exploit (Other)"
     for _, ent in pairs( ents.GetAll() ) do
