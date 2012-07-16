@@ -1,0 +1,254 @@
+// ARES-SHRIKE
+
+"Weapon_M249.Button"
+{
+	"channel"		"CHAN_ITEM"
+	"volume"		"1.0"
+	"CompatibilityAttenuation"	"1.0"
+	"pitch"		"PITCH_NORM"
+
+	"wave"			"weapons\m249\button.wav" 
+}
+"Weapon_M249.cUp"
+{
+	"channel"		"CHAN_ITEM"
+	"volume"		"1.0"
+	"CompatibilityAttenuation"	"1.0"
+	"pitch"		"PITCH_NORM"
+
+	"wave"			"weapons\m249\coverup.wav" 
+}
+"Weapon_M249.Bullet1"
+{
+	"channel"		"CHAN_ITEM"
+	"volume"		"1.0"
+	"CompatibilityAttenuation"	"1.0"
+	"pitch"		"PITCH_NORM"
+
+	"wave"			"weapons\m249\bullet.wav" 
+}
+"Weapon_M249.bIn"
+{
+	"channel"		"CHAN_ITEM"
+	"volume"		"1.0"
+	"CompatibilityAttenuation"	"1.0"
+	"pitch"		"PITCH_NORM"
+
+	"wave"			"weapons\m249\boxin.wav" 
+}
+"Weapon_M249.Bullet2"
+{
+	"channel"		"CHAN_ITEM"
+	"volume"		"1.0"
+	"CompatibilityAttenuation"	"1.0"
+	"pitch"		"PITCH_NORM"
+
+	"wave"			"weapons\m249\bullet.wav" 
+}
+"Weapon_M249.cDown"
+{
+	"channel"		"CHAN_ITEM"
+	"volume"		"1.0"
+	"CompatibilityAttenuation"	"1.0"
+	"pitch"		"PITCH_NORM"
+
+	"wave"			"weapons\m249\coverdown.wav" 
+}
+"Weapon_M249.Ready"
+{
+	"channel"		"CHAN_ITEM"
+	"volume"		"1.0"
+	"CompatibilityAttenuation"	"1.0"
+	"pitch"		"PITCH_NORM"
+
+	"wave"			"weapons\m249\ready.wav" 
+}
+
+// KRISS
+
+"Weapon_UMP45.Magrelease"
+{
+	"channel"		"CHAN_ITEM"
+	"volume"		"1.0"
+	"CompatibilityAttenuation"	"1.0"
+	"pitch"			"95,105"
+
+	"wave"			"weapons\Kriss\magrel.wav"
+}
+
+"Weapon_UMP45.unfold"
+{
+	"channel"		"CHAN_ITEM"
+	"volume"		"1.0"
+	"CompatibilityAttenuation"	"1.0"
+	"pitch"			"95,105"
+
+	"wave"			"weapons\Kriss\unfold.wav"
+}
+
+"Weapon_UMP45.Clipout"
+{
+	"channel"		"CHAN_ITEM"
+	"volume"		"1.0"
+	"CompatibilityAttenuation"	"1.0"
+	"pitch"			"95,105"
+
+	"wave"			"weapons\Kriss\clipout.wav"
+}
+
+"Weapon_UMP45.Clipin"
+{
+	"channel"		"CHAN_ITEM"
+	"volume"		"1.0"
+	"CompatibilityAttenuation"	"1.0"
+	"pitch"			"95,105"
+
+	"wave"			"weapons\Kriss\clipin.wav"
+}
+
+"Weapon_UMP45.Boltpull"
+{
+	"channel"		"CHAN_ITEM"
+	"volume"		"1.0"
+	"CompatibilityAttenuation"	"1.0"
+	"pitch"			"95,105"
+
+	"wave"			"weapons\Kriss\boltpull.wav"
+}
+
+"Weapon_UMP45.Dropclip"
+{
+	"channel"		"CHAN_ITEM"
+	"volume"		"1.0"
+	"CompatibilityAttenuation"	"1.0"
+	"pitch"			"95,105"
+
+	"wave"			"weapons\Kriss\dropclip.wav"
+}
+
+// M24 sniper
+
+"Weapon_scout.Magin"
+{
+	"channel"		"CHAN_ITEM"
+	"volume"		"1.0"
+	"CompatibilityAttenuation"	"1.0"
+	"pitch"			"PITCH_NORM"
+
+	"wave"			"weapons\turboscout\m24_magin.wav"
+}
+
+"Weapon_scout.Magout"
+{
+	"channel"		"CHAN_ITEM"
+	"volume"		"1.0"
+	"CompatibilityAttenuation"	"1.0"
+	"pitch"			"PITCH_NORM"
+
+	"wave"			"weapons\turboscout\m24_magout.wav"
+}
+
+"Weapon_scout.Boltback"
+{
+	"channel"		"CHAN_ITEM"
+	"volume"		"1.0"
+	"CompatibilityAttenuation"	"1.0"
+	"pitch"			"PITCH_NORM"
+
+	"wave"			"weapons\turboscout\m24_boltback.wav"
+}
+
+"Weapon_scout.Boltforward"
+{
+	"channel"		"CHAN_ITEM"
+	"volume"		"1.0"
+	"CompatibilityAttenuation"	"1.0"
+	"pitch"			"PITCH_NORM"
+
+	"wave"			"weapons\turboscout\m24_boltforward.wav"
+}
+
+"Weapon_Scout.Single"
+{
+	"channel"		"CHAN_WEAPON"
+	"volume"		"1.0"
+	"CompatibilityAttenuation"	"1.6"
+	"pitch"		"PITCH_NORM"
+
+	"wave"			"weapons\scout\scout_fire-1.wav"
+}
+
+// G36
+
+"Weapon_sg550.clipin"
+{
+	"channel"		"CHAN_ITEM"
+	"volume"		"1.0"
+	"CompatibilityAttenuation"	"1.0"
+	"pitch"			"95,105"
+
+	"wave"			"weapons/sg550/m24_magin.wav"
+}
+
+"Weapon_sg550.clipout"
+{
+	"channel"		"CHAN_ITEM"
+	"volume"		"1.0"
+	"CompatibilityAttenuation"	"1.0"
+	"pitch"			"95,105"
+
+	"wave"			"weapons/sg550/m24_magout.wav"
+}
+
+"Weapon_sg550.boltback"
+{
+	"channel"		"CHAN_ITEM"
+	"volume"		"1.0"
+	"CompatibilityAttenuation"	"1.0"
+	"pitch"			"95,105"
+
+	"wave"			"weapons/sg550/m24_boltback.wav"
+}
+
+"Weapon_sg550.boltforward"
+{
+	"channel"		"CHAN_ITEM"
+	"volume"		"1.0"
+	"CompatibilityAttenuation"	"1.0"
+	"pitch"			"95,105"
+
+	"wave"			"weapons/sg550/m24_boltforward.wav"
+}
+
+"Weapon_sg550.stockunfold"
+{
+	"channel"		"CHAN_ITEM"
+	"volume"		"1.0"
+	"CompatibilityAttenuation"	"1.0"
+	"pitch"			"95,105"
+
+	"wave"			"weapons/sg550/foldback.wav"
+}
+
+// M3 Tactical
+// Don't mind the xxxx thingies, just some mess up with the model sounds...
+
+"Weapon_M3.InsertShellxxxxxxxx"
+{
+	"channel"		"CHAN_ITEM"
+	"volume"		"1.0"
+	"CompatibilityAttenuation"	"1.0"
+	"pitch"			"95,105"
+
+	"wave"			"weapons/m3/m3_insertshell.wav"
+}
+
+"Weapon_M3.Pumpxxxxxxxx"
+{
+	"channel"		"CHAN_ITEM"
+	"volume"		"1.0"
+	"CompatibilityAttenuation"	"1.0"
+	"pitch"			"95,105"
+
+	"wave"			"weapons/m3/m3_pump.wav"
+}

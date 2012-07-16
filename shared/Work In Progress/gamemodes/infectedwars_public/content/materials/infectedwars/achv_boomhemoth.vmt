@@ -1,0 +1,8 @@
+"UnlitGeneric" 
+{ 
+	"$basetexture" "infectedwars/achv_boomhemoth"
+	"$vertexcolor" 1 
+	"$vertexalpha" 1 
+	"$nolod" 1
+	"$ignorez" 1
+} 
