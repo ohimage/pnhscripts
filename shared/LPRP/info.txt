@@ -1,0 +1,22 @@
+"Gamemode"
+{
+	"name"		"LPRP - RP Gamemode by TheLastPenguin"
+	"version"	"0.0.0"
+
+	"author_name"	"TheLastPenguin"
+	"author_email"	"penguin@lastpenguin.com"
+	"author_url"	"forums.lastpenguin.com"
+	
+	"icon"		""
+	"info"		""
+	"hide"		"0"
+  
+      "mappattern"
+        {
+			"1" "^lprp_"
+        }
+
+        "selectable"	"1"
+        "description"	"An awesome amazing really cool gamemode."
+}
+
