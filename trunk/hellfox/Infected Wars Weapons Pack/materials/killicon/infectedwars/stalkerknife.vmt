@@ -1,0 +1,8 @@
+"UnlitGeneric"
+{
+	"$basetexture" "killicon/infectedwars/stalkerknife"
+	"$vertexalpha" 1
+	"$vertexcolor" 1
+	"$nomip" 1
+	"$ignorez" 1
+}
