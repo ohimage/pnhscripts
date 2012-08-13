@@ -31,9 +31,24 @@ end
 
 -- Thanks to who ever made the above script for ulib.tsay
 
+function clnupAllTable( splyname, delList )
+    local entModel = ""
+    UpsClnMsg( nil, "[clnup] " .. splyname .. " has removed ")
+    for _,ent in pairs(delList) do
+        if(ent and ent:IsValid() and not ent:IsWorld()) then
+            if( ent:GetModel() ) then entModel = ent:GetModel() end
+            UpsClnMsg( nil, ent:GetClass() .. "(" .. entModel .. ")" )
+            ent:Remove()
+        end
+    end
+    if( delList or table.getn(delList) > 0 ) then
+        table.Empty(delList)
+    end
+end
+
 function UpsClnStr( player,command,args )
 
-	strArgs = args[1]
+	strArgs = string.lower(args[1])
     strArg2 = args[2]
     strArgValid = false
 	
@@ -54,85 +69,84 @@ function UpsClnStr( player,command,args )
         splyname = "Console"
     end
 	
-	if(strArgs == "*") then 
+	if(strArgs == "f*") then 
 		game.CleanUpMap()
-        strArgValid = true
+        UpsClnMsg( nil, "[clnup] "..splyname.." has reset the map." )
+        return
 	end
-    
-    if(strArgs == "s*") then
+
+    if(strArgs == "*") then
         if( player:IsValid() ) then player:ConCommand( "gmod_admin_cleanup" ) else RunConsoleCommand( "gmod_admin_cleanup" ) end
-        strArgValid = true
+        UpsClnMsg( nil, "[clnup] "..splyname.." has cleaned up the map." )
+        return
     end
         
-    if(strArgs == "p") then
-        if( strArg2 == "" or strArg2 == nil or strArg2 == " " or strArg2 == "  " ) then
-            UpsClnMsg( player, "Error: Player Not Specified!")
-        else
-            for k,v in pairs(player.GetAll())do
-                if( v:IsValid() and v:IsPlayer() and string.find(v:Name(),strArg2) ) then
-                    v:ConCommand("gmod_cleanup")
-                    strArgValid = true
-                end
-            end
-        end
-    end
+    -- if(strArgs == "p") then
+        -- if( strArg2 == "" or strArg2 == nil or strArg2 == " " or strArg2 == "  " ) then
+            -- UpsClnMsg( player, "Error: Player Not Specified!")
+        -- else
+            -- for k,v in pairs(player.GetAll())do
+                -- if( v:IsValid() and v:IsPlayer() and string.find(v:Name(),strArg2) ) then
+                    -- v:ConCommand("gmod_cleanup")
+                    -- strArgValid = true
+                -- end
+            -- end
+        -- end
+    -- end
 	
 	if(strArgs == "help") then
         UpsClnMsg( player, "[clnup] Input a model string or an entity class.\n [clnup] Input s* cleans up every thing safely, input * resets the map.\n [clnup] Input p then a players name to cleanup a player.\n" )
-    end
-
-	ignoreList =
-	{
-		"player",
-		"worldspawn",
-		"gmod_anchor",    
-		"npc_grenade_frag", 
-		"prop_combine_ball", 
-		"npc_satchel",
-		"class C_PlayerResource",
-		"C_PlayerResource",
-		"viewmodel",
-		"beam",
-		"physgun_beam",
-		"class C_FogController",
-		"class C_Sun",
-		"class C_EnvTonemapController",
-		"class C_WaterLODControl",
-		"class C_SpotlightEnd"
-	}
-        
-    ScanReturn = {}
-    indxd = 0
-        
-    if(strArgs == "scan") then
-        for _, ent in ipairs( ents.GetAll() ) do
-            if not (table.HasValue( ignoreList, ent:GetClass() )) then
-                indxd = indxd + 1
-                table.insert(ScanReturn,ent:GetClass())
-            end
-        end
-        UpsClnMsg( player, "[clnup] Scan Results_\n"..table.concat(ScanReturn,"\n").."[clnup] "..indxd.." objects have been found." )
-        indxd = 0
-        ScanReturn = {}
+        return
     end
     
---[[if( string.find(strArgs,"*") >= 1 and string.len(strArgs) > 1 ) then
-        fStrArgs = string.Explode(strArgs,"*")
-        for _, ent in ipairs( ents.GetAll() ) do
-            if(ent:IsValid() and not ent:IsWorld()) then
-                if not (table.HasValue( ignoreList, ent:GetClass() )) then
-                    for _, sa in ipairs( fStrArgs ) do
-                        if( string.find(ent:GetClass(),sa) > 0 ) then ent:Remove() end
-                        strArgValid = true
-                    end
-                end
-            end
-        end    
-    end ]]
-
-    for _, ent in ipairs( ents.GetAll() ) do
-        if(ent:IsValid() and ent:GetModel() == strArgs) then
+    local WildCard = false
+    local killScript = false
+    local cs = string.find(strArgs,"*")
+    local entClassS = 0
+    local entModelS = 0
+    local delList = {}
+	local ignoreList =
+	{
+        "player",
+        "worldspawn",
+        "gmod_anchor",    
+        "npc_grenade_frag", 
+        "prop_combine_ball", 
+        "npc_satchel",
+        "class C_PlayerResource",
+        "C_PlayerResource",
+        "viewmodel",
+        "beam",
+        "physgun_beam",
+        "class C_FogController",
+        "C_FogController",
+        "class C_Sun",
+        "C_Sun",
+        "class C_EnvTonemapController",
+        "C_EnvTonemapController",
+        "class C_WaterLODControl",
+        "C_WaterLODControl",
+        "class C_SpotlightEnd",
+        "C_SpotlightEnd"
+	}
         
+    -- ScanReturn = {}
+    -- indxd = 0
+        
+    -- if(strArgs == "scan") then
+        -- for _, ent in ipairs( ents.GetAll() ) do
+            -- if not (table.HasValue( ignoreList, ent:GetClass() )) then
+                -- indxd = indxd + 1
+                -- table.insert(ScanReturn,ent:GetClass())
+            -- end
+        -- end
+        -- UpsClnMsg( player, "[clnup] Scan Results_\n"..table.concat(ScanReturn,"\n").."[clnup] "..indxd.." objects have been found." )
+        -- indxd = 0
+        -- ScanReturn = {}
+    -- end
+    
+    for _, ent in ipairs( ents.GetAll() ) do
+        if(ent and ent:IsValid() and ent:GetModel() == strArgs) then
             if not (ent:IsWorld()) then
                 if not table.HasValue( ignoreList, ent:GetClass() ) then
                     ent:Remove()
@@ -140,33 +154,58 @@ function UpsClnStr( player,command,args )
                 end
             end
             
-        elseif(ent:IsValid() and ent:GetClass() == strArgs) then
-        
+        elseif(ent and ent:IsValid() and ent:GetClass() == strArgs) then
             if not table.HasValue( ignoreList, ent:GetClass() ) then
+            
+                if not ( ent:IsWorld() ) then
+                    ent:Remove()
+                    strArgValid = true
+                end
                 
-                if( ent:IsValid() and ent:GetClass() == strArgs ) then
+            end
+            
+        elseif(ent and ent:IsValid() and strArgs and string.find(strArgs, "*") and not (ent:IsWorld() and strArgValid)) then
+            if(ent:GetClass() and ent:GetModel() and not (ent:GetModel() == nil or ent:GetModel() == "") ) then
+                if not table.HasValue( ignoreList, ent:GetClass() ) then
+                    if( ent:GetClass() ) then
+                        entClassS = string.find(ent:GetClass(), string.Trim(strArgs,"*"))
+                    else
+                        killScript = true
+                        break
+                    end
                     
-                    if not ( ent:IsWorld() ) then
-                        
-                        ent:Remove()
-                        strArgValid = true
-                    
+                    if not( entClassS == nil ) then
+                        if ( entClassS <= cs ) then
+                            table.insert(delList,ent)
+                        end
+                        WildCard = true
                     end
                 end
+            else
+                WildCard = false
+            end
+            
+        end
+    end
+    
+    if( killScript ) then 
+        UpsClnMsg( player, "[clnup] Error. No valid ents." )
+        return 
+    end
+    
+    if( WildCard ) then
+        if( string.find(strArgs,"*") > 0 ) then
+            clnupAllTable(splyname, delList)
+            if( delList or table.getn(delList) > 0 ) then
+                table.Empty(delList)
             end
         end
     end
         
     if( strArgValid ) then
-        if( strArgs == "*" ) then
-            UpsClnMsg( nil, "[clnup] "..splyname.." has reset the map." )
-        elseif( strArgs == "s*" ) then
-            UpsClnMsg( nil, "[clnup] "..splyname.." has cleaned up the map." )
-        else
-            UpsClnMsg( nil, "[clnup] "..splyname.." has removed "..strArgs )
-        end
+        UpsClnMsg( nil, "[clnup] "..splyname.." has removed "..strArgs )
         strArgValid = false
     end
 end
-	
-concommand.Add( "hf_clnstr", UpsClnStr, {"help","s*","*","prop_physics","prop_ragdoll"} )
+
+concommand.Add( "hf_clnstr", UpsClnStr, function() return {"hf_clnstr help","hf_clnstr *","hf_clnstr f*","hf_clnstr prop_physics","hf_clnstr prop_ragdoll","hf_clnstr npc_*"} end )
