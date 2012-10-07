@@ -16,6 +16,9 @@ SWEP.Purpose = "Pounce";
 SWEP.Instructions = "Primary Scratch, Secondary jump at a player.";
 SWEP.Category = "Pet-SWEPS";
 
+SWEP.ViewModel = "models/weapons/v_crowbar.mdl"
+SWEP.WorldModel = "models/weapons/w_crowbar.mdl"
+
 SWEP.Spawnable = false;
 SWEP.AdminSpawnable = true;
 
@@ -32,7 +35,10 @@ SWEP.Secondary.ClipSize = -1;
 SWEP.Secondary.DefaultClip = -1;
 SWEP.Secondary.Automatic = false;
 SWEP.Secondary.Ammo = "";
- 
+
+SWEP.MinDamage = 5
+SWEP.MaxDamage = 35
+
 function SWEP:Initialize()
 	self:SetWeaponHoldType("physgun")
 end
@@ -43,17 +49,24 @@ function SWEP:Deploy()
 		self.Owner:DrawWorldModel(false)
 	end
 end
- 
+
+function SWEP:OnDrop()
+    self.Weapon:Remove()
+end 
+
 function SWEP:Think()
+    if not(self.Owner:Team() == TEAM_PET) then
+        self.Weapon:Remove()
+    end
 end
   
 function SWEP:SecondaryAttack() // when secondary attack happens
  
 	// Make sure we can shoot first
-	if ( !self:CanPrimaryAttack() ) then return end
- 
-	self.Weapon:EmitSound ( "npc/fast_zombie/leap1.wav" )
+	if not( self:CanPrimaryAttack() ) then return end  
     
+    self.Owner:SetGravity(1)
+	self.Weapon:EmitSound ( "npc/fast_zombie/leap1.wav" )
     self.Owner:SetVelocity((self.Owner:GetForward() * 320) + Vector(0,0,150))
  
 	self.Weapon:SetNextPrimaryFire( CurTime() + 1 )
@@ -66,25 +79,48 @@ function SWEP:PrimaryAttack() //when +attack1 happens
 	// Make sure we can shoot first
 	if ( !self:CanPrimaryAttack() ) then return end
     
-    local eyetrace = self.Owner:GetEyeTrace()
-    local phys = eyetrace.Entity:GetPhysicsObject()
-   
-    if ( eyetrace.HitPos:Distance(self.Owner:GetPos()) < 100 ) then
-        self.Weapon:EmitSound ( "npc/fast_zombie/claw_strike"..math.random(1,3)..".wav" )
-        if ( eyetrace.Entity:IsValid() and eyetrace.Entity:IsPlayer() or eyetrace.Entity:IsNPC() ) then 
-            eyetrace.Entity:TakeDamage( math.random(15,100), self.Owner, self.Owner )
-            eyetrace.Entity:SetVelocity((eyetrace.Entity:GetForward() * -64) + Vector(0,0,32))
-        elseif ( phys and phys:IsValid() and phys:IsMoveable() ) then
-            phys:Wake()
-            phys:SetVelocity((eyetrace.Entity:GetForward() * -640) + Vector(0,0,74))
-        end
+    local dmg = math.random(self.MinDamage,self.MaxDamage)
+    
+    local tr = {}
+	tr.start = self.Owner:GetShootPos()
+	tr.endpos = self.Owner:GetShootPos() + ( self.Owner:GetAimVector() * 50 )
+	tr.filter = self.Owner
+	tr.mask = MASK_SHOT
+	local trace = util.TraceLine( tr )
+
+	self.Weapon:SetNextPrimaryFire(CurTime() + 1)
+
+	if ( trace.Hit ) then
+        local ent = trace.Entity
+		if trace.Entity:IsPlayer() or string.find(trace.Entity:GetClass(),"npc") or string.find(trace.Entity:GetClass(),"prop_ragdoll") then
+			bullet = {}
+			bullet.Num    = 1
+			bullet.Src    = self.Owner:GetShootPos()
+			bullet.Dir    = self.Owner:GetAimVector()
+			bullet.Spread = Vector(0, 0, 0)
+			bullet.Tracer = 0
+			bullet.Force  = 1
+			bullet.Damage = dmg
+			self.Owner:FireBullets(bullet)
+			self.Weapon:EmitSound ( "npc/fast_zombie/claw_strike"..math.random(1,3)..".wav" )
+		else
+			bullet = {}
+			bullet.Num    = 1
+			bullet.Src    = self.Owner:GetShootPos()
+			bullet.Dir    = self.Owner:GetAimVector()
+			bullet.Spread = Vector(0, 0, 0)
+			bullet.Tracer = 0
+			bullet.Force  = 1
+			bullet.Damage = dmg
+			self.Owner:FireBullets(bullet)
+            self.Weapon:EmitSound ( "npc/fast_zombie/claw_strike"..math.random(1,3)..".wav" )
+		end
     else
         self.Weapon:EmitSound ( "npc/vort/claw_swing"..math.random(1,2)..".wav" )
     end
     
-    self.Weapon:SetNextPrimaryFire( CurTime() + 1 )
 end //end our function
  
 function SWEP:Reload()
-    return true
+    return false
 end
