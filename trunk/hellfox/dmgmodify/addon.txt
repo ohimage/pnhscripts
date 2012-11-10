@@ -1,0 +1,10 @@
+"AddonInfo"
+{
+	"name"				"Damage Modify"
+	"version"			"1.0"
+	"author_name"			"HeLLFox"
+	"author_email"			"hellfox14@gmail.com"
+	"author_url"			""
+	"info"				"Allows you to modify the damage that stuff does to you."
+	"override"			"1"
+}
